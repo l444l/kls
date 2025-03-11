@@ -1,0 +1,37 @@
+/* STRUCTURE SECTION */
+.content {
+    margin: 0 auto 20px;
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#content h2 {
+  margin-bottom: 20px;
+}
+
+/* INDIVIDUAL CLASS STRUCTURE SECTIONS */
+.structure {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.section:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .content {
+        width: 95%;
+    }
+}

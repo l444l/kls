@@ -1,0 +1,469 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(120deg, #1E2A78, #9B59B6);
+    color: white;
+    text-align: center;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    font-size: 32px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px 10px 0 0;
+}
+
+/* Navigation Bar */
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin: 0 auto 20px;
+    width: fit-content;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 20px;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+}
+
+/* Hover effect for menu items */
+nav ul li a:hover, 
+nav ul li a.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+/* Dropdown Menu */
+.dropdown-menu, 
+.dropdown-menu2 {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    min-width: 160px;
+    border-radius: 5px;
+    padding: 5px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+.dropdown-menu li,
+.dropdown-menu2 li {
+    text-align: center;
+}
+
+.dropdown-menu li a,
+.dropdown-menu2 li a {
+    display: block;
+    color: white;
+    padding: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-menu li a:hover,
+.dropdown-menu2 li a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu,
+.dropdown2:hover .dropdown-menu2 {
+    display: block;
+}
+
+/* Content Section */
+.content {
+    margin: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Table Styles for Lesson Schedule */
+table {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+th {
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+td {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* News Page Styling */
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* News Card */
+.news-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    color: white;
+}
+
+.news-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* News Image */
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* News Info */
+.news-info {
+    padding: 15px;
+    color: white;
+    text-align: left;
+}
+
+.news-info h3 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.news-info p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Modal Active with Smooth Entry */
+.modal.active {
+    display: flex;
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+/* When Active, Image Scales Up */
+.modal.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Image Inside Modal */
+.modal img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.modal p,
+modal h3 {
+    color: black;
+}
+
+/* Keyframe Animation for Fade-In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Load More Button */
+#loadMoreBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Form Container */
+form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Input Fields */
+.input-container {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus, textarea:focus {
+    border-color: #007BFF;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Send Button */
+#sendBtn {
+    padding: 12px;
+    font-size: 16px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Success Message */
+.hidden {
+    display: none;
+    color: #00ff00;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Gallery Grid Layout */
+.gallery-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Gallery Items */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Image */
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Overlay Effect */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Title on Hover */
+.overlay p {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    transform: translateY(10px);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover .overlay p {
+    transform: translateY(0);
+}
+
+.news-container {
+  display: flex;
+  
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    body {
+      border-radius: 1rem;
+      /*background-color: #4158D0;*/
+      /*background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);*/
+      /*box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;*/
+      /*box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);*/
+      /*blur-radius: 50px;*/
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin-bottom: 5px;
+    }
+
+    .dropdown-menu,
+    .dropdown-menu2 {
+        background: rgba(0, 0, 0, 0.4);
+        position: static;
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-menu,
+    .dropdown2:hover .dropdown-menu2 {
+        display: block;
+    }
+
+    /* Table */
+    th, td {
+        /*padding: 3px;*/
+        max-width: 5px;
+    }
+
+  #schedule-container {
+      width: 100%;
+      overflow-x: auto; /* Enables horizontal scrolling */
+  }
+  
+  #schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px; /* Ensures the table doesn't shrink too much */
+  }
+  
+  #schedule-table th, #schedule-table td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+  }
+
+    .news-container {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        width: 90%;
+    }
+
+}
