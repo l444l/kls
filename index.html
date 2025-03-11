@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Kelas XI PPLG 3</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/check.css">
+    <script defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Hallowed Grounds';
+            src: url('HallowedGrounds.otf');
+        }
+
+        body {
+            margin: 0;
+            background-color: #000;
+            color: #fff;
+            transition: background-color 0.5s;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            <!-- height: 100vh; -->
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner .content .title {
+            font-family: 'Hallowed Grounds', sans-serif;
+            font-size: 9em;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url(images/bg.jpg);
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+
+            mask-image: url(images/ink_lv2.gif);
+            mask-size: cover;
+            mask-position: center;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        /* Container untuk switch */
+        .container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Efek ketika background aktif */
+        .banner.active::before {
+            opacity: 1;
+        }
+
+        body.active {
+            background-color: #222;
+        }
+
+        @media (max-width: 768px) {
+          .banner .content .title {
+              font-family: 'Hallowed Grounds', sans-serif;
+              font-size: 5em;
+          }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Website Kelas XI PPLG 3</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" data-page="home" class="active">Home</a></li>
+            <li><a href="#" data-page="berita">Berita</a></li>
+            <li><a href="#" data-page="gallery">Galeri</a></li>
+            <li><a href="#" data-page="structure">Struktur Kelas</a></li>
+            <li class="dropdown">
+                <a>Jadwal Pelajaran</a>
+                <ul class="dropdown-menu">
+                    <li><a data-day="monday" picket="true">Senin</a></li>
+                    <li><a data-day="tuesday">Selasa</a></li>
+                    <li><a data-day="wednesday">Rabu</a></li>
+                    <li><a data-day="thursday">Kamis</a></li>
+                    <li><a data-day="friday">Jumat</a></li>
+                </ul>
+            </li>
+            <li class="dropdown2">
+                <a>Jadwal Piket</a>
+                <ul class="dropdown-menu2">
+                    <li><a data-day="all" picket="true" all="true">Semua</a></li>
+                    <li><a data-day="senin" picket="true">Senin</a></li>
+                    <li><a data-day="selasa" picket="true">Selasa</a></li>
+                    <li><a data-day="rabu" picket="true">Rabu</a></li>
+                    <li><a data-day="kamis" picket="true">Kamis</a></li>
+                </ul>
+            </li>
+            <!-- <li><a href="#" data-page="picket">Jadwal Piket</a></li> -->
+            <li><a href="#" data-page="contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- <div class="banner"> -->
+        <!-- <div class="content"> -->
+            <!-- <h1 class="title">Welcome</h1> -->
+        <!-- </div> -->
+    <!-- </div> -->
+
+    <!-- Tombol switch -->
+    <label class="container">
+        <input id="toggleSwitch" type="checkbox" checked>
+        <div class="checkmark"></div>
+    </label>
+
+    <div class="banner">
+      <main class="content" id="content">
+        <!-- content -->
+      </main>
+    </div>
+
+    <footer>
+        <p>© 2024 Skorsa - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.getElementById("toggleSwitch").addEventListener("change", function() {
+            document.body.classList.toggle("active");
+            document.querySelector(".banner").classList.toggle("active");
+        });
+    </script>
+</body>
+</html>
