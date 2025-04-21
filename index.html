@@ -15,31 +15,20 @@
             src: url('HallowedGrounds.otf');
         }
 
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-
         body {
+            margin: 0;
             background-color: #000;
             color: #fff;
             transition: background-color 0.5s;
         }
-        /* Increase touch target size */
-        nav ul li a {
-            padding: 15px 20px;
-            display: block;
-        }
 
-        label.container {
-            padding: 10px;
-        }
         .banner {
-            height: 100%;
-            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            <!-- height: 100vh; -->
+            position: relative;
+            overflow: hidden;
         }
 
         .banner .content .title {
@@ -49,7 +38,7 @@
 
         .banner::before {
             content: '';
-            position: fixed;
+            position: absolute;
             inset: 0;
             background-image: url(images/bg.jpg);
             background-size: cover;
@@ -66,8 +55,8 @@
         /* Container untuk switch */
         .container {
             position: fixed;
-            bottom: 10px;
-            left: 38px;
+            bottom: 30px;
+            left: 50%;
             transform: translateX(-50%);
             display: flex;
             justify-content: center;
@@ -84,63 +73,10 @@
         }
 
         @media (max-width: 768px) {
-        .banner .content .title {
-            font-family: 'Hallowed Grounds', sans-serif;
-            font-size: 5em;
-        }
-        }
-        /* Responsive adjustments for Android devices */
-        @media (max-width: 768px) {
-            header {
-                font-size: 24px;
-                padding: 15px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                padding: 0;
-            }
-
-            nav ul li {
-                margin-bottom: 10px;
-            }
-
-            nav ul li a {
-                padding: 10px;
-                font-size: 16px;
-            }
-
-            .banner .content .title {
-                font-size: 4em;
-            }
-
-            .container {
-                bottom: 20px;
-            }
-
-            .banner::before {
-                background-size: cover;
-                background-position: center;
-            }
-
-            footer {
-                font-size: 14px;
-                padding: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .banner .content .title {
-                font-size: 3em;
-            }
-
-            nav ul li a {
-                font-size: 14px;
-            }
-
-            .container {
-                bottom: 15px;
-            }
+          .banner .content .title {
+              font-family: 'Hallowed Grounds', sans-serif;
+              font-size: 5em;
+          }
         }
     </style>
 </head>
@@ -204,9 +140,21 @@
     </footer>
 
     <script>
-        document.getElementById("toggleSwitch").addEventListener("change", function() {
-            document.body.classList.toggle("active");
-            document.querySelector(".banner").classList.toggle("active");
+        // Fungsi untuk mengaktifkan class "active"
+        function activateElements() {
+            document.body.classList.add("active");
+            document.querySelector(".banner").classList.add("active");
+        }
+    
+        // Jalankan saat halaman selesai dimuat
+        window.addEventListener("DOMContentLoaded", function() {
+            activateElements(); // Aktif saat page load
+    
+            // Tetap pasang event listener untuk toggle switch
+            document.getElementById("toggleSwitch").addEventListener("change", function() {
+                document.body.classList.toggle("active");
+                document.querySelector(".banner").classList.toggle("active");
+            });
         });
     </script>
 </body>
